@@ -1,16 +1,40 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
+const posts = await getCollection("posts");
+console.log(posts);
 ---
 
 <Layout title="Alfonso's Page in Github">
+  <h1>Welcome to my Github Page</h1>
+  <p>Mis ultimas entradas</p>
+  <div class="blog-card-wrapper">
+    {
+      posts.map((post) => {
+        const { slug, data } = post;
+        const { title, description, readingTime, tags, featuredImage } = data;
 
-
-		<h1>Welcome to my Github Page</span></h1>
-		<ul>
-			<li><a href="/blog/posts/my-first-post-blog/">Post 1</a></li>
-
-		  </ul>
-
+        return (
+          <section class="blog-card">
+            <div class="blog-card__content">
+              <a class="blog-card__link" href={`/posts/${slug}`}>
+                <h2 class="blog-card__title">{title}</h2>
+              </a>
+              <div class="blog-card__meta">                
+                <p class="blog-card__tags">{tags}</p>
+                <p class="blog-card__reading"><span>Tiempo de lectura:</span> {readingTime}</p>
+              </div>
+              <p class="blog-card__description">{description}</p>
+            </div>
+            <div class="blog-card__cover">
+              <a href={`/posts/${slug}`}>
+              <img class="blog-card__image" src={featuredImage} alt="" />
+              </a>
+            </div>
+          </section>
+        );
+      })
+    }
+  </div>
 </Layout>
-

@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts.map((post) => ({
+    params: { id: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const { title, description, readingTime, featuredImage, tags } = data;
+
+const { Content } = await render(post);
+---
+
+<Layout title={`${title} - Alfonso's Blog`}>
+  <div class="blog-entry-wrapper">
+    <article class="blog-entry">
+      <div class="blog-entry__featured-image">
+        <img
+          class="blog-entry__image"
+          src={featuredImage}
+          alt={`Imagen destacada de ${title}`}
+        />
+      </div>
+      <h1 class="blog-entry__title">{title}</h1>
+
+      <div class="blog-entry__meta">
+        <span class="blog-entry__date">Fecha de publicación</span>
+        <span class="blog-entry__reading-time"
+          >Tiempo de lectura: {readingTime}</span
+        >
+      </div>
+
+      <div class="blog-entry__tags">
+        <span class="blog-entry__tag">{tags}</span>
+      </div>
+
+      <section class="blog-entry__content">
+        <Content />
+      </section>
+    </article>
+  </div>
+</Layout>
