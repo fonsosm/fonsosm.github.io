@@ -1,30 +1,30 @@
 /* Define las fuentes en variables */
 @font-face {
   font-family: 'Playfair Display';
-  src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype'),
-       url('/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('../fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype'),
+       url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Playfair Display';
-  src: url('/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('../fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Source Sans 3';
-  src: url('/fonts/SourceSans3-VariableFont_wght.ttf') format('truetype'),
-       url('/fonts/SourceSans3-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('../fonts/SourceSans3-VariableFont_wght.ttf') format('truetype'),
+       url('../fonts/SourceSans3-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Source Sans 3';
-  src: url('/fonts/SourceSans3-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('../fonts/SourceSans3-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
 }
